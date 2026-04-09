@@ -3,9 +3,6 @@ title: "Emergent Phenomena"
 date: 2026-03-10w
 pinned: true
 ---
-
-**Ryder McDowell** · March 10, 2026 
----
 <div style="background-color: #E4F2E1; padding: 10px; color: #1a1a1a;">
 We thought building a bridge would be simple. We had all the necessary materials---sticks, palm fronds, dead branches---and a clear goal: cross the canal to the island on the other side. We piled everything into the water and waited for the structure to emerge. Instead, it all sank. One by one, the pieces disappeared into the dark brackish water, leaving no path forward. The ingredients were familiar. The outcome was not.
 </div>
