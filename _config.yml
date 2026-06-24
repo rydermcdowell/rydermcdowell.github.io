@@ -1,7 +1,7 @@
 # Site settings
 title: Ryder McDowell # site title
 description: >- # site description
-  Originally from Florida, but now studying at UChicago. Being advised on condensed matter theory and plan on purusing a Theoretical Physics PhD in 2027. Lots of experience in STEM outreach: from calculus tutorials and instructional physics labs to journal club presentations and tutoring. 
+  Personal/academic website
 lang: en-US # default lang
 timezone: Central  # set your timezone
 image: assets/img/ogp.png # This image used for Open Graph more info https://ogp.me/
@@ -12,7 +12,7 @@ mode: dark # default theme "dark" | "light"
 author:
   name: Ryder McDowell # author name
   bio: >- # tell to the world
-    Studying math and physics at UChicago.
+    UChicago Math & Physics. Interested in CMT + Topological phases. Currently, at UMD in the MathQuantum research fellowship.
   username: username # general username
   github: github_username # github username
   twitter: twitter_username # twitter username

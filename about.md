@@ -6,7 +6,9 @@ excerpt: Hello peeps, I'm student of computer science from Banyuwangi, living in
 comments: false
 ---
 
-Hello, I'm Ryder, and I'm in my third year at UChicago studying mathematics and physics. Broadly, I'm interested in condensed matter theory, and most recently I've been working with QCAs (Quantum Cellular Automata), boundary algebras, and generalized symmetries. This summer, I'll be at UMD working on an AQFT (Algebraic Quantum Field Theory) project. In addition to research, I have extensive experience in STEM outreach. Being from a low-income, underserved background myself, I'm especially interested in opportunities that connect underrepresented youth with high-quality STEM experiences.
+Hi, I'm Ryder! I'm a senior at UChicago studying mathematics and physics. Broadly, I'm interested in condensed matter theory dealing with topological phases of matter, particularly their underlying mathematical formalism. I've worked closely with QCAs, operator algebras, and group cohomology. Currently, I'm working on a project dealing with symmetry fractionalization for crystalline symmetries in an operator algebraic framework at UMD.
+
+In addition to research, I have extensive experience in STEM outreach. Being from a low-income/first-gen background, I'm especially interested in opportunities that connect underrepresented youth with high-quality STEM experiences and I love mentoring/teaching.
 
 <div class="carousel" id="carousel-0">
   <div class="carousel-window">
@@ -25,7 +27,7 @@ Hello, I'm Ryder, and I'm in my third year at UChicago studying mathematics and 
   <button class="carousel-btn next" onclick="moveCarousel(0, 1)">&#8594;</button>
 </div>
 
-Outside of school, I play the guitar, paint, and do a lot of biking when I get the chance.
+In my normal life, I play the guitar, paint, and do a lot of biking when I get the chance.
 
 <div class="carousel" id="carousel-1">
   <div class="carousel-window">
@@ -103,4 +105,4 @@ function moveCarousel(id, dir) {
 }
 </script>
 
-Email me at: mcdowellr [at] uchicago [dot] edu
+Email me at: mcdowellr@uchicago.edu
