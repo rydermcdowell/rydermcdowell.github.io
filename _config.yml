@@ -12,7 +12,7 @@ mode: dark # default theme "dark" | "light"
 author:
   name: Ryder McDowell # author name
   bio: | # tell to the world
-      UChicago Math + Physics Senior<br>UMD MathQuantum Research Fellow<br>Interested in CMT, QIS, and QFT w/ concentration in topological phases 
+      -> UChicago Math + Physics Senior<br> ->UMD MathQuantum Research Fellow<br> ->Interested in CMT, QIS, and QFT w/ concentration in topological phases 
   username: username # general username
   github: github_username # github username
   twitter: twitter_username # twitter username
