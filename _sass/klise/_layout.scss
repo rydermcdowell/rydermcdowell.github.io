@@ -7,7 +7,7 @@
   margin-right: auto;
   margin-left: auto;
   border-bottom: 1px solid $light;
-  padding: $spacing-full - 15px $spacing-full;
+  padding: $spacing-full - 10px $spacing-full;
   @extend %clearfix;
 }
 
@@ -181,8 +181,8 @@
 
 // Author
 .author {
-  margin-top: 6.3rem;
-  margin-bottom: 7.2rem;
+  margin-top: 4rem;
+  margin-bottom: 4rem;
   text-align: center;
 
   @include media-query($on-mobile) {

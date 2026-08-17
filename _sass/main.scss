@@ -61,3 +61,42 @@ $on-widescreen: 1152px;
 // Import sass files
 @import "klise/fonts", "klise/base", "klise/layout", "klise/post",
   "klise/miscellaneous", "klise/syntax", "klise/dark";
+
+.pinned-block {
+  border-left: 2px solid $light;
+  border-radius: 0;
+  padding-left: 1.1rem;
+  margin-bottom: 3rem;
+
+  .post-item {
+    display: block;
+    padding: 0.35rem 0;
+
+    &:not(:first-child) { border-top: 0; }
+
+    .post-item-date {
+      min-width: 0;
+      padding-right: 0;
+      margin-left: 0.6rem;
+      font-weight: normal;
+      font-size: $small-font-size;
+      opacity: 0.55;
+    }
+
+    .post-item-title {
+      display: inline;
+    }
+  }
+}
+
+.pinned-block,
+.recent-block {
+  .posts-item-note {
+    font-size: $small-font-size;
+    font-weight: normal;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    opacity: 0.6;
+    margin-bottom: 0.6rem;
+  }
+}
