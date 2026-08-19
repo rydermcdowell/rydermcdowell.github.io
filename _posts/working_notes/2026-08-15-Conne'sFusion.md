@@ -1,107 +1,200 @@
 ---
 layout: post
-title:  Conne's Fusion
+title:  Connes Fusion
 date:   2026-08-15 22:57:49 +0000
 categories: jekyll update
 usemathjax: true
 ---
 
-Following Chapter 3 of [Unitary Quantum Symmetries Lite](https://people.math.osu.edu/penneys.2/UQSL/UQSL.html) from Penneys, Ferrer, and Kawagoe we want to try to first establish what Conne's fusion is and walk through the easiest possible example utilizing it.
+Following Chapter 3 of [Unitary Quantum Symmetries Lite](https://people.math.osu.edu/penneys.2/UQSL/UQSL.html) from Penneys, Ferrer, and Kawagoe we want to try to first establish what Connes fusion is and walk through the easiest possible example utilizing it.
 
----
+This text gives three equivalent definitions. For now let's restrict ourselves to the first one.
 
-## Conne's Fusion
+<div style="background-color: #ffe4eb; padding: 10px; color: #1a1a1a;">
+<b style="color: #1a1a1a;">Definition: Connes Fusion.</b>
+<br>
+Given a right B-module \(H_B\) and a left B-module \({}_{B}K\). We define the <b style="color: #1a1a1a;">Connes Fusion</b> relative tensor product Hilbert space \(H\boxtimes_B K\) can be defined using the relative tensor product for \(C^*\)-Hilbert modules.
 
-This text gives three equivalent definitions, but let's restrict ourselves to one. 
-
-<div style="background-color: #EDC9D2; padding: 10px; color: #1a1a1a;">
-<b style="color: #1a1a1a;">&gt;&gt;Definition&lt;&lt;</b>
-Given a right B-module \(H_B\) and a left B-module \({}_{B}K\). We define the <b style="color: #1a1a1a;">Connes' Fusion</b> relative tensor product Hilbert space \(H\boxtimes_B K\) can be defined using the relative tensor product for \(C^*\)-Hilbert modules.
-
-$$ Hom(L^2B_B \rightarrow H_B) \boxtimes_B K$$ 
+$$ Hom(L^2B_B \rightarrow H_B) \boxtimes_B K$$
 with \(\mathbb{C}\)-valued inner product
 
-$$\langle f_1 \boxtimes \eta_1 \vert f_2 \boxtimes \eta_2 \rangle := \langle \langle f_2 \vert f_1 \rangle_B \eta_1 \vert \eta_2 \rangle_K$$ 
+$$\langle f_1 \boxtimes \eta_1 \vert f_2 \boxtimes \eta_2 \rangle := \langle \langle f_2 \vert f_1 \rangle_B \eta_1 \vert \eta_2 \rangle_K$$
 where we have
+$$\langle f_2 \vert f_1 \rangle_B = f_2^{\dagger}f1 \in End(L^2B_B)=B$$
 </div>
 
+We aim to build up the tools to understand this definition within this post.
 
+### Modules
 
+In general, modules can be thought of as a generalazition of a vector space, where we let the scalars come from a ring rather than a field. However, what we're really interested in is modules of algebras. Translating to that language we have:
 
+<div style="background-color: #ffe4eb; padding: 10px; color: #1a1a1a; position: relative;">
+<span style="position: absolute; top: 8px; right: 12px; font-weight: bold; color: #008000;">VecSpace</span>
+<b style="color: #1a1a1a;">Definition — Left Module.</b> <br>
+Suppose \(A\) is a unital algebra. A (left) module \({}_{A}M\) for \(A\) is a vector space \(M\) equipped with a bilinear map \( \triangleright: A \times M \rightarrow M \) satisfying:
+<br>
+1. (associativity) $$a \triangleright (b \triangleright m) = (a \cdot b) \triangleright m \text{ for } m \in M \text{ and } a,b \in A$$
+2. (unitality) $$1 \triangleright m = m \text{ for } m \in M$$
+</div>
 
+<!-- commentary -->
 
+<hr style="border: none; border-top: 1px solid black;">
+<div style="background-color: #ffe4eb; padding: 10px; color: #1a1a1a; position: relative;">
 
-For a qutrit ($$d=3$$) spin chain, the $$\mathbb{Z}_2$$ symmetry acts as
+<b style="color: #1a1a1a;">Definition — Right Module.</b> <br>
+<span style="position: absolute; top: 8px; right: 12px; font-weight: bold; color: #008000;">VecSpace</span>
+Suppose \(A\) is a unital algebra. A (right) module \(M_A\) for \(A\) is a vector space \(M\) equipped with a bilinear map \( \triangleleft: M \times A \rightarrow M \) satisfying:
+<br>
+1. (associativity) $$(m \triangleleft a) \triangleleft b = m \triangleleft (a \cdot b) \text{ for } m \in M \text{ and } a,b \in A$$
+2. (unitality) $$m \triangleleft 1 = m \text{ for } m \in M$$
+</div>
 
-$$U(a) = \bigotimes_i A_i, \qquad A = \begin{pmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & -1 \end{pmatrix}$$
+Using these let's understand the definition of a bimodule over two algebras.
 
-A matrix $$M$$ commutes with $$A$$ iff it is block-diagonal of the form
+<div style="background-color: #ffe4eb; padding: 10px; color: #1a1a1a; position: relative;">
+<span style="position: absolute; top: 8px; right: 12px; font-weight: bold;"><span style="color: #1a1a1a;">(</span><span style="color: #008000;">VecSpace</span><span style="color: #1a1a1a;">, </span><span style="color: #0000FF;">UnitalMap</span><span style="color: #1a1a1a;">)</span></span>
+<b style="color: #1a1a1a;">Definition: A–B Bimodule.</b> <br>
+An A–B bimodule \(M\), denoted \({}_{A}M_{B}\) is a right B-module, \(M_B\) equipped with a unital algebra map \( \cdot: A  \rightarrow End(M_B)\)
+</div>
 
-$$M = \begin{pmatrix} * & * & 0 \\ * & * & 0 \\ 0 & 0 & * \end{pmatrix}$$
+<!-- commentary -->
 
-This is a 5-dimensional complex vector space, decomposing as $$M_2(\mathbb{C}) \oplus \mathbb{C}$$. A natural basis for the single-site symmetric algebra is therefore built from the Pauli operators projected into the $$\mathcal{H}_+$$ block, plus a projector onto the $$\mathcal{H}_-$$ sector:
+### The Algebraic Relative Tensor Product
 
-$$\bar{X} = P_1 X P_1, \quad \bar{Z} = P_1 Z P_1, \qquad P_1 = \mathrm{diag}(1,1,0), \quad P_2 = \mathrm{diag}(0,0,1)$$
+<par>
+For modules of an algebra, \(\mathcal{A}, M_A, {}_{A}N\), the relative tensor product \(M \otimes_A N \) is the quotient of the tensor product \( M \otimes N \) subspace generated by
 
-So the single-site symmetric algebra is generated by $$\{\bar{X}_i, \bar{Z}_i, P_{2,i} \mid i \in \mathbb{Z}\}$$.
+$$ K =  \{ ma \otimes n - m \otimes an \; \vert \; m \in M, a\in \mathcal{A},  \text{ and } n \in N \} \subset M \otimes N$$
 
-But as the previous post showed, this isn't the whole story on a chain.
+In short, \( M \otimes_A N = M \otimes N / K\). Hence, \(ma \otimes_A n = m \otimes_A an\).
 
----
+This gives a sense of what the relative tensor product is supposed to accomplish, but to properly understand Connes fusion, we need to understand the relative tensor product of Hilbert bimodules, for which we have to understand the role of the inner product in this discussion.
+*Note, that in finite dimensions every Hilbert space bimodule is unitarily equivalent to a correspondence of unitary algebras.
+</par>
 
-## General Qudits: Three Types of Generators
+<!-- commentary -->
 
-For a chain of $$d$$-dimensional qudits with $$\mathbb{Z}_2$$ symmetry splitting the on-site Hilbert space as $$\mathcal{H}^{(i)} = \mathcal{H}_+ \oplus \mathcal{H}_-$$ (with $$\dim \mathcal{H}_+ = p$$, $$\dim \mathcal{H}_- = q$$), we claim the symmetric subalgebra is generated by three types of operators:
+### Algebra-Valued Inner Products & Hilbert C*-Modules
 
-1. **On-site operators** $$O_i$$: operators in $$\mathcal{A}_{\mathbb{Z}_2}^{(i)}$$ acting as the identity elsewhere — i.e. $$O_i = \mathbf{1}^{\otimes (i-1)} \otimes O \otimes \mathbf{1}^{\otimes (L-i)}$$ with $$O \in \mathcal{A}_{\mathbb{Z}_2}^{single}$$.
+<!-- commentary: motivate why the plain quotient above isn't enough — a correspondence needs geometry, i.e. an algebra-valued inner product -->
 
-2. **Charge-hoppers** $$C_{i,i+1}$$: two-site operators on a bond $$(i, i+1)$$ that swap which site carries the $$\mathcal{H}_-$$ component:
-$$\mathcal{H}_- \otimes \mathcal{H}_+ \;\leftrightarrow\; \mathcal{H}_+ \otimes \mathcal{H}_-$$
+<div style="background-color: #ffe4eb; padding: 10px; color: #1a1a1a; position: relative;">
+<span style="position: absolute; top: 8px; right: 12px; font-weight: bold;"><span style="color: #1a1a1a;">(</span><span style="color: #008000;">VecSpace</span><span style="color: #1a1a1a;">, </span><span style="color: #0000FF;">InnerProduct</span><span style="color: #1a1a1a;">)</span></span>
+<b style="color: #1a1a1a;">Definition: A-valued Inner Product.</b> <br>
+Suppose \(X_A\) is a right module for a unitary algebra \(A\). An <b style="color: #1a1a1a;">\(A\)-valued inner product</b> is a map \(\langle \cdot \vert \cdot \rangle_A : X \times X \rightarrow A\) satisfying:
+<br>
+1. (\(A\)-linear in the second variable) $$\langle \varphi \vert \zeta_1 a + \zeta_2 \rangle_A = \langle \varphi \vert \zeta_1 \rangle_A \, a + \langle \varphi \vert \zeta_2 \rangle_A$$
+2. (conjugate-symmetric) $$\langle \varphi \vert \zeta \rangle_A^{*} = \langle \zeta \vert \varphi \rangle_A$$
+3. (positive-definite) $$\langle \varphi \vert \varphi \rangle_A \geq 0 \text{ in } A, \text{ with equality iff } \varphi = 0.$$
+</div>
+<hr style="border: none; border-top: 1px solid black;">
 
-3. **Pair swaps** $$S_{i,i+1}$$: two-site operators on a bond $$(i, i+1)$$ that exchange the two parity-even combinations:
-$$\mathcal{H}_+ \otimes \mathcal{H}_+ \;\leftrightarrow\; \mathcal{H}_- \otimes \mathcal{H}_-$$
+<div style="background-color: #ffe4eb; padding: 10px; color: #1a1a1a; position: relative;">
+<span style="position: absolute; top: 8px; right: 12px; font-weight: bold;"><span style="color: #1a1a1a;">(</span><span style="color: #008000;">VecSpace</span><span style="color: #1a1a1a;">, </span><span style="color: #0000FF;">InnerProduct</span><span style="color: #1a1a1a;">)</span></span>
+<b style="color: #1a1a1a;">Definition: Right Hilbert C*-Module.</b> <br>
+A right module equipped with an C* algebra valued inner product is a <b style="color: #1a1a1a;">right Hilbert \(C^*\)-module</b>.
+</div>
+some day
+<div style="background-color: #ffe4eb; padding: 10px; color: #1a1a1a; position: relative;">
+<span style="position: absolute; top: 8px; right: 12px; font-weight: bold; color: #0000FF;">InnerProduct</span>
+<b style="color: #1a1a1a;">Definition: Adjointable Operator.</b> <br>
+Suppose \(X_A, Y_A\) are right modules equipped with \(A\)-valued inner products. A right \(A\)-linear map \(x : X \rightarrow Y\) is <b style="color: #1a1a1a;">adjointable</b> if there is a right \(A\)-linear map \(x^{\dagger} : Y \rightarrow X\), called an <b style="color: #1a1a1a;">adjoint</b>, such that
+<br>
+$$\langle x^{\dagger}\varphi \vert \zeta \rangle_A = \langle \varphi \vert x\zeta \rangle_A \qquad \forall \zeta \in X, \; \varphi \in Y,$$
+where the left inner product is on \(X\) and the right one is on \(Y\). We write \(End(X_A)\) for the algebra of adjointable operators \(X \rightarrow X\). 
+</div>
 
-Call the subalgebra generated by these $$B$$. Since all three types preserve the parity sectors $$\mathcal{H}_{even}$$ and $$\mathcal{H}_{odd}$$, we have $$B \subset \mathcal{A}_{\mathbb{Z}_2}$$. We want to show $$B = \mathcal{A}_{\mathbb{Z}_2}$$.
+<!-- commentary -->
 
----
+<div style="background-color: #ffe4eb; padding: 10px; color: #1a1a1a; position: relative;">
+<span style="position: absolute; top: 8px; right: 12px; font-weight: bold;"><span style="color: #1a1a1a;">(</span><span style="color: #008000;">VecSpace</span><span style="color: #1a1a1a;">, </span><span style="color: #0000FF;">InnerProduct</span><span style="color: #1a1a1a;">)</span></span>
+<b style="color: #1a1a1a;">Trick: Realization.</b> <br>
+For any right Hilbert \(C^*\)-module \(X_A\), the adjointable maps \(Hom(A_A \rightarrow X_A)\) themselves form a right Hilbert \(C^*\)-module with \(A\)-valued inner product
+<br>
+$$\langle f \vert g \rangle_A := f^{\dagger} \circ g \in End(A_A) = A.$$
+Moreover the map \(X_A \rightarrow Hom(A_A \rightarrow X_A)\) given by \(\zeta \mapsto \vert \zeta \rangle_A\), where \(\vert \zeta \rangle_A : a \mapsto \zeta a\), is a unitary isomorphism of Hilbert \(C^*\)-modules. This lets us manufacture a genuine \(A\)-valued inner product on a space built out of \(X\) by comparing against the standard module \(A_A\).
+</div>
 
-## Burnside's Theorem Does the Work
+<!-- commentary -->
 
-We use the following version of Burnside's theorem (see [Burnside's Theorem on Matrix Algebras](http://www.joelshapiro.org/Pubvit/Downloads/BurnsideThm/burnside.html)):
+### Correspondences
 
-> For a finite-dimensional complex vector space $$V$$, the only irreducible subalgebra of $$\mathrm{End}(V)$$ is $$\mathrm{End}(V)$$ itself, where irreducibility is equivalent to transitivity: $$\forall v \in V \setminus \{0\}$$, $$Mv = V$$.
+<div style="background-color: #ffe4eb; padding: 10px; color: #1a1a1a; position: relative;">
+<span style="position: absolute; top: 8px; right: 12px; font-weight: bold;"><span style="color: #1a1a1a;">(</span><span style="color: #008000;">VecSpace</span><span style="color: #1a1a1a;">, </span><span style="color: #0000FF;">InnerProduct</span><span style="color: #1a1a1a;">)</span></span>
+<b style="color: #1a1a1a;">Definition: Correspondence of Unitary Algebras.</b> <br>
+Given A,B unitary algebras. An A–B correspondence is an A–B bimodule \({}_{A}X_B\) equipped with a right B-valued inner product \(\langle \cdot \vert \cdot \rangle_B \) such that \(\rho : A \rightarrow End(X_B)\) is a unital \(\star\)–algebra map. Thus,
+<br>
+$$\forall a \in A, \; \; \eta, \zeta \in X \qquad \qquad \langle a^*\eta\vert\zeta\rangle_B = \langle \eta \vert a \zeta \rangle_B$$
+</div>
 
-Since $$\mathcal{A}_{\mathbb{Z}_2} \cong \mathrm{End}(\mathcal{H}_{even}) \oplus \mathrm{End}(\mathcal{H}_{odd})$$, it suffices to show $$B$$ acts transitively on each sector separately.
+<!-- commentary -->
 
-**Claim:** $$\forall \psi \in \mathcal{H}_{even} \setminus \{0\}$$, $$B\psi = \mathcal{H}_{even}$$, and similarly for $$\mathcal{H}_{odd}$$.
+From this we can introduce the correct definition of relative tensor product.
 
-### Proof sketch (even sector)
+<div style="background-color: #ffe4eb; padding: 10px; color: #1a1a1a; position: relative;">
+<span style="position: absolute; top: 8px; right: 12px; font-weight: bold;"><span style="color: #1a1a1a;">(</span><span style="color: #008000;">VecSpace</span><span style="color: #1a1a1a;">, </span><span style="color: #0000FF;">InnerProduct</span><span style="color: #1a1a1a;">)</span></span>
+<b style="color: #1a1a1a;">Definition: Relative Tensor Product of Correspondences.</b> <br>
+Given A,B,C unitary algebras and \( {}_{A}X_{B}, {}_B{Y}_{C} \) correspondences. The <b style="color: #1a1a1a;">relative tensor product</b>, \({}_{A}X \boxtimes_B Y_C \), is the quotient space \(X \otimes Y/N \) where
+$$N = span\{ \eta b \otimes \zeta - \eta \otimes b \zeta \; \vert \; \eta \in X, \; \zeta \in Y, \; \text{ and } b \in B \} $$
+We denote the image of \(\eta \otimes \zeta\) by \(\eta \boxtimes \zeta\), and equip \(X \boxtimes_B Y\) with the \(C\)-valued inner product
+$$\langle \eta_1 \boxtimes \zeta_1 \vert \eta_2 \boxtimes \zeta_2 \rangle_C := \langle \langle \eta_2 \vert \eta_1 \rangle_B \, \zeta_1 \vert \zeta_2 \rangle_C.$$
+This is well-defined and positive-definite (this is the content of Lemma 3.2.33), so \({}_{A}X \boxtimes_B Y_C\) is again an A–C correspondence.
+</div>
 
-Take any nonzero $$\psi \in \mathcal{H}_{even}$$. Write it as a superposition of tensor-product basis states, each with an even number of $$\mathcal{H}_-$$ sites. Since $$\psi \neq 0$$, at least one basis state $$v_k = \bigotimes_j \vert e_j \rangle$$ appears with nonzero coefficient $$c_k$$.
+<!-- commentary -->
 
-Using the projectors $$P_k = \bigotimes_j \vert e_j \rangle \langle e_j \vert$$ inherited from the on-site generators, we get $$P_k \psi = c_k v_k \neq 0$$. Since $$B$$ is a vector space and $$\frac{1}{c_k} P_k \in B$$, we recover $$v_k \in B\psi$$.
+### From Hilbert Space Modules to Correspondences
 
-Now we show $$v_k$$ can reach any other even-sector basis state $$w$$ using the generators of $$B$$:
+<!-- commentary: the Connes fusion definition starts from Hilbert *space* modules, not correspondences — this section bridges the gap -->
 
-- If $$v_k$$ and $$w$$ have the same number of $$\mathcal{H}_-$$ sites: use charge-hoppers to slide the $$\mathcal{H}_-$$ components where needed, then on-site operators to rearrange within $$\mathcal{H}_+$$.
-- If they have a different number of $$\mathcal{H}_-$$ sites (but the same parity, since both are in $$\mathcal{H}_{even}$$): use charge-hoppers to collect $$\mathcal{H}_-$$ components onto adjacent bonds, then pair swaps to create or annihilate pairs as needed. Since the counts agree mod 2, this is always achievable.
+<div style="background-color: #ffe4eb; padding: 10px; color: #1a1a1a; position: relative;">
+<span style="position: absolute; top: 8px; right: 12px; font-weight: bold; color: #008000;">HilbertSpace</span>
+<b style="color: #1a1a1a;">Definition: Hilbert Space Module.</b> <br>
+A right <b style="color: #1a1a1a;">Hilbert space</b> B-module \(H_B\) is a Hilbert space \(H\) equipped with a right B-action, i.e. a unital \(\star\)-homomorphism \(B^{op} \rightarrow B(H)\). Its \(\mathbb{C}\)-valued inner product does <b style="color: #1a1a1a;">not</b> restrict to a canonical B-valued inner product (unless \(B = \mathbb{C}\)); this is the content of Warning 3.3.3.
+</div>
 
-This constructs an operator $$\tilde{O}_w \in B$$ with $$\tilde{O}_w v_k = w$$ for every even basis state $$w$$. Hence $$\mathcal{H}_{even} \subset Bv_k \subset B\psi$$, giving $$B\psi = \mathcal{H}_{even}$$.
+<!-- commentary -->
 
-The odd sector is identical. So $$B$$ is transitive on both sectors, hence irreducible in $$\mathcal{A}_{\mathbb{Z}_2}$$, and by Burnside's theorem $$B = \mathcal{A}_{\mathbb{Z}_2}$$.
+<div style="background-color: #ffe4eb; padding: 10px; color: #1a1a1a; position: relative;">
+<span style="position: absolute; top: 8px; right: 12px; font-weight: bold;"><span style="color: #1a1a1a;">(</span><span style="color: #008000;">VecSpace</span><span style="color: #1a1a1a;">, </span><span style="color: #0000FF;">InnerProduct</span><span style="color: #1a1a1a;">)</span></span>
+<b style="color: #1a1a1a;">Trick: Realization via \(L^2 B\).</b> <br>
+Given a Hilbert space module \(H_B\), apply the realization trick with the standard module \(L^2 B\) in place of \(B\). The adjointable maps \(Hom(L^2 B_B \rightarrow H_B)\) form a right Hilbert \(C^*\)-module with B-valued inner product
+<br>
+$$\langle f \vert g \rangle_B := f^{\dagger} g \in End(L^2 B_B) = B.$$
+This converts the Hilbert space module \(H_B\) — which had no canonical B-valued inner product — into a genuine B-correspondence, exactly the kind of object the relative tensor product of correspondences can act on.
+</div>
 
----
+<!-- commentary -->
 
-## A Note on Unitarity
+### Connes Fusion
 
-The on-site operators and charge-hoppers can always be built as unitaries. For the charge-hoppers this works because $$\dim(\mathcal{H}_+ \otimes \mathcal{H}_-) = pq = \dim(\mathcal{H}_- \otimes \mathcal{H}_+)$$, so the spaces being swapped have equal dimension.
+<!-- commentary: everything is now in place — Connes fusion is just realization (Hom(L^2B -> H)) followed by the relative tensor product of correspondences. We separate the space it produces from the operation that produces it. -->
 
-For the pair swaps, unitarity requires $$\dim(\mathcal{H}_+ \otimes \mathcal{H}_+) = \dim(\mathcal{H}_- \otimes \mathcal{H}_-)$$, i.e. $$p^2 = q^2$$, i.e. $$p = q$$. This is achievable for even-dimensional qudits (choose $$U$$ with equal $$\pm 1$$ eigenvalues) but **not for odd-dimensional qudits** like the qutrit, where $$p \neq q$$ is unavoidable. The transitivity argument above doesn't require unitarity, so the generating set still works — but the pair swaps are not unitary in the qutrit case. This is worth keeping in mind when thinking about circuits.
+<div style="background-color: #ffe4eb; padding: 10px; color: #1a1a1a; position: relative;">
+<span style="position: absolute; top: 8px; right: 12px; font-weight: bold; color: #008000;">HilbertSpace</span>
+<b style="color: #1a1a1a;">Definition: Connes Fusion (the Space).</b>
+<br>
+Given a right B-module \(H_B\) and a left B-module \({}_{B}K\), the <b style="color: #1a1a1a;">Connes fusion relative tensor product Hilbert space</b> \(H \boxtimes_B K\) is
+$$ Hom(L^2B_B \rightarrow H_B) \boxtimes_B K$$
+equipped with the \(\mathbb{C}\)-valued inner product
+$$\langle f_1 \boxtimes \eta_1 \vert f_2 \boxtimes \eta_2 \rangle := \langle \langle f_2 \vert f_1 \rangle_B \eta_1 \vert \eta_2 \rangle_K$$
+where
+$$\langle f_2 \vert f_1 \rangle_B = f_2^{\dagger}f_1 \in End(L^2B_B)=B.$$
+</div>
 
----
+<!-- commentary -->
 
-## Summary
+<div style="background-color: #ffe4eb; padding: 10px; color: #1a1a1a; position: relative;">
+<span style="position: absolute; top: 8px; right: 12px; font-weight: bold; color: #0000FF;">Bifunctor</span>
+<b style="color: #1a1a1a;">Definition: Connes Fusion (the Operation).</b>
+<br>
+Given module maps \(x : H_B \rightarrow M_B\) and \(y : {}_{B}K \rightarrow {}_{B}N\), Connes fusion produces a map
+$$x \boxtimes_B y : H \boxtimes_B K \rightarrow M \boxtimes_B N$$
+determined by
+$$f \boxtimes \eta \mapsto (x \circ f) \boxtimes y\eta$$
+for \(f \in Hom(L^2B_B \rightarrow H_B)\) and \(\eta \in K\). Here \(x\) acts on the realized module \(Hom(L^2B_B \rightarrow H_B)\) by post-composition \(f \mapsto x \circ f\). This makes \(\boxtimes_B\) a <b style="color: #1a1a1a;">bifunctor</b>: it acts not only on modules but on the maps between them, and respects composition.
+</div>
 
-$$\mathcal{A}_{\mathbb{Z}_2} = \mathrm{span}(O_i, C_j, S_k)$$ with $$i \in [1,L]$$, $$j \in [1, L-1]$$, $$k \in [1, L-2]$$.
-
-The argument is dimension-independent: as long as the three types of generators exist (which requires only $$p, q \geq 1$$), they generate the full symmetric subalgebra via Burnside. The only subtlety is that pair swaps can't be made unitary unless $$p = q$$.
+<!-- commentary -->
