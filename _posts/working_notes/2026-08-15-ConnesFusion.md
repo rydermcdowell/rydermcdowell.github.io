@@ -280,7 +280,7 @@ where the left inner product is on \(X\) and the right one is on \(Y\).
 
 <div style="background-color: #ffe4eb; padding: 10px; color: #1a1a1a; position: relative;">
 <span style="position: absolute; top: 8px; right: 12px; font-weight: bold;"><span style="color: #1a1a1a;">(</span><span style="color: #008000;">VecSpace</span><span style="color: #1a1a1a;">, </span><span style="color: #0000FF;">InnerProduct</span><span style="color: #1a1a1a;">)</span></span>
-<b style="color: #1a1a1a;">Trick: Realization.</b> <br>
+<b style="color: #1a1a1a;">Trick: Realization (Self-Enrichment).</b> <br>
 For any right Hilbert \(C^*\)-module \(X_A\), the adjointable maps \(AdHom(A_A \rightarrow X_A)\) themselves form a right Hilbert \(C^*\)-module with \(A\)-valued inner product
 <br>
 $$\langle f \vert g \rangle_A := f^{\dagger} \circ g \in End(A_A) = A$$
@@ -369,7 +369,7 @@ so as an element of \(A\) (evaluating at \(b = 1\)), this equals \(\langle f \ve
 <par>
 <b style="color: #1a1a1a;"> Positive-definite.</b>
 <br>
-We have \(\langle f \vert f\rangle_A = f^{\dagger} \circ f\), which is positive in \(End(A_A) = A\) as the composite of an operator with its adjoint (Corollary 3.2.21). It's definite because if \(f^{\dagger} f = 0\), then for all \(b \in A\),
+We have \(\langle f \vert f\rangle_A = f^{\dagger} \circ f\), which is positive in \(End(A_A) = A\) as the composite of an operator with its adjoint (Corollary 3.2.21). IT's defif \(f^{\dagger} f = 0\), then for all \(b \in A\),
 \[\langle f(b) \vert f(b)\rangle_A^X = \langle b \vert f^{\dagger} f (b)\rangle_A = 0\]
 so \(f(b) = 0\) by definiteness of \(\langle \cdot \vert \cdot \rangle_A^X\), hence \(f = 0\). \(\checkmark\)
 </par>
@@ -380,7 +380,56 @@ Therefore \(\mathcal{H} = AdHom(A_A \rightarrow X_A)\) is a right Hilbert \(C^*\
 </div>
 </div>
 
+<!-- commentary -->
 
+### Correspondences
+
+<div style="background-color: #ffe4eb; padding: 10px; color: #1a1a1a; position: relative;">
+<span style="position: absolute; top: 8px; right: 12px; font-weight: bold;"><span style="color: #1a1a1a;">(</span><span style="color: #008000;">VecSpace</span><span style="color: #1a1a1a;">, </span><span style="color: #0000FF;">InnerProduct</span><span style="color: #1a1a1a;">)</span></span>
+<b style="color: #1a1a1a;">Definition: Correspondence of Unitary Algebras.</b> <br>
+Given A,B unitary algebras. An A–B correspondence is an A–B bimodule \({}_{A}X_B\) equipped with a right B-valued inner product \(\langle \cdot \vert \cdot \rangle_B \) such that \(\rho : A \rightarrow End(X_B)\) is a unital \(\star\)–algebra map. Thus,
+<br>
+$$\forall a \in A, \; \; \eta, \zeta \in X \qquad \qquad \langle a^*\eta\vert\zeta\rangle_B = \langle \eta \vert a \zeta \rangle_B$$
+</div>
+
+<!-- commentary -->
+
+From this we can introduce the correct definition of relative tensor product.
+
+<div style="background-color: #ffe4eb; padding: 10px; color: #1a1a1a; position: relative;">
+<span style="position: absolute; top: 8px; right: 12px; font-weight: bold;"><span style="color: #1a1a1a;">(</span><span style="color: #008000;">VecSpace</span><span style="color: #1a1a1a;">, </span><span style="color: #0000FF;">InnerProduct</span><span style="color: #1a1a1a;">)</span></span>
+<b style="color: #1a1a1a;">Definition: Relative Tensor Product of Correspondences.</b> <br>
+Given A,B,C unitary algebras and \( {}_{A}X_{B}, {}_B{Y}_{C} \) correspondences. The <b style="color: #1a1a1a;">relative tensor product</b>, \({}_{A}X \boxtimes_B Y_C \), is the quotient space \(X \otimes Y/N \) where
+$$N = span\{ \eta b \otimes \zeta - \eta \otimes b \zeta \; \vert \; \eta \in X, \; \zeta \in Y, \; \text{ and } b \in B \} $$
+We denote the image of \(\eta \otimes \zeta\) by \(\eta \boxtimes \zeta\), and equip \(X \boxtimes_B Y\) with the \(C\)-valued inner product
+$$\langle \eta_1 \boxtimes \zeta_1 \vert \eta_2 \boxtimes \zeta_2 \rangle_C := \langle \langle \eta_2 \vert \eta_1 \rangle_B \, \zeta_1 \vert \zeta_2 \rangle_C.$$
+This is well-defined and positive-definite (this is the content of Lemma 3.2.33), so \({}_{A}X \boxtimes_B Y_C\) is again an A–C correspondence.
+</div>
+
+<!-- commentary -->
+
+### From Hilbert Space Modules to Correspondences
+
+<!-- commentary: the Connes fusion definition starts from Hilbert *space* modules, not correspondences — this section bridges the gap -->
+
+<div style="background-color: #ffe4eb; padding: 10px; color: #1a1a1a; position: relative;">
+<span style="position: absolute; top: 8px; right: 12px; font-weight: bold; color: #008000;">HilbertSpace</span>
+<b style="color: #1a1a1a;">Definition: Hilbert Space Module.</b> <br>
+A right <b style="color: #1a1a1a;">Hilbert space</b> B-module \(H_B\) is a Hilbert space \(H\) equipped with a right B-action, i.e. a unital \(\star\)-homomorphism \(B^{op} \rightarrow B(H)\). Its \(\mathbb{C}\)-valued inner product does <b style="color: #1a1a1a;">not</b> restrict to a canonical B-valued inner product (unless \(B = \mathbb{C}\)); this is the content of Warning 3.3.3.
+</div>
+
+<!-- commentary -->
+
+<div style="background-color: #ffe4eb; padding: 10px; color: #1a1a1a; position: relative;">
+<span style="position: absolute; top: 8px; right: 12px; font-weight: bold;"><span style="color: #1a1a1a;">(</span><span style="color: #008000;">VecSpace</span><span style="color: #1a1a1a;">, </span><span style="color: #0000FF;">InnerProduct</span><span style="color: #1a1a1a;">)</span></span>
+<b style="color: #1a1a1a;">Trick: Realization via \(L^2 B\).</b> <br>
+Given a Hilbert space module \(H_B\), apply the realization trick with the standard module \(L^2 B\) in place of \(B\). The adjointable maps \(Hom(L^2 B_B \rightarrow H_B)\) form a right Hilbert \(C^*\)-module with B-valued inner product
+<br>
+$$\langle f \vert g \rangle_B := f^{\dagger} g \in End(L^2 B_B) = B.$$
+This converts the Hilbert space module \(H_B\) — which had no canonical B-valued inner product — into a genuine B-correspondence, exactly the kind of object the relative tensor product of correspondences can act on.
+</div>
+
+<!-- commentary -->
 
 ### Connes Fusion
 
@@ -401,14 +450,14 @@ $$\langle f_2 \vert f_1 \rangle_B = f_2^{\dagger}f_1 \in End(L^2B_B)=B.$$
 <!-- commentary -->
 
 <div style="background-color: #ffe4eb; padding: 10px; color: #1a1a1a; position: relative;">
-<span style="position: absolute; top: 8px; right: 12px; font-weight: bold; color: #02c09d;">ModifiedTensorProduct</span>
+<span style="position: absolute; top: 8px; right: 12px; font-weight: bold; color: #0000FF;">Bifunctor</span>
 <b style="color: #1a1a1a;">Definition: Connes Fusion (the Operation).</b>
 <br>
 Given module maps \(x : H_B \rightarrow M_B\) and \(y : {}_{B}K \rightarrow {}_{B}N\), Connes fusion produces a map
 $$x \boxtimes_B y : H \boxtimes_B K \rightarrow M \boxtimes_B N$$
 determined by
 $$f \boxtimes \eta \mapsto (x \circ f) \boxtimes y\eta$$
-for \(f \in Hom(L^2B_B \rightarrow H_B)\) and \(\eta \in K\).
+for \(f \in Hom(L^2B_B \rightarrow H_B)\) and \(\eta \in K\). Here \(x\) acts on the realized module \(Hom(L^2B_B \rightarrow H_B)\) by post-composition \(f \mapsto x \circ f\). This makes \(\boxtimes_B\) a <b style="color: #1a1a1a;">bifunctor</b>: it acts not only on modules but on the maps between them, and respects composition.
 </div>
 
 <!-- commentary -->
