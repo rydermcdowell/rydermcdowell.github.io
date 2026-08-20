@@ -408,7 +408,7 @@ Given module maps \(x : H_B \rightarrow M_B\) and \(y : {}_{B}K \rightarrow {}_{
 $$x \boxtimes_B y : H \boxtimes_B K \rightarrow M \boxtimes_B N$$
 determined by
 $$f \boxtimes \eta \mapsto (x \circ f) \boxtimes y\eta$$
-for \(f \in Hom(L^2B_B \rightarrow H_B)\) and \(\eta \in K\). Here \(x\) acts on the realized module \(Hom(L^2B_B \rightarrow H_B)\) by post-composition \(f \mapsto x \circ f\). 
+for \(f \in Hom(L^2B_B \rightarrow H_B)\) and \(\eta \in K\).
 </div>
 
 <!-- commentary -->
